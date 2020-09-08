@@ -1,6 +1,7 @@
 
 var height = 0;
 var width = 0;
+var vidas = 1;
 
 function ajusteTamanhoJanela() {
     height = window.innerHeight;
@@ -14,7 +15,16 @@ function posicaoRandomica(){
 
     // REMOVENDO O MOSQUITO ANTES DE CRIAR OUTRO (caso exista)
     if(document.getElementById('mosquito') !== null) {
-        document.getElementById('mosquito').remove();
+        document.getElementById('mosquito').remove(); 
+
+        if(vidas > 3) {
+           alert('Interromper o jogo: (game over)') 
+        }  
+        else {
+            document.getElementById('v' + vidas).src="imagens/coracao_vazio.png" // alterando a imagem da vida
+            vidas++;
+        }
+        
     }
     
 
@@ -35,7 +45,10 @@ function posicaoRandomica(){
     mosquito.style.top = posicaoY + 'px';
     mosquito.style.position = 'absolute';
     mosquito.id = 'mosquito';
-    // " . " acessa os atributos html
+
+    mosquito.onclick = function() {
+        this.remove(); // "this." faz referência ao elemento html(mosquito)
+    }
 
     document.body.appendChild(mosquito);  // add um filtro para o body
 }
