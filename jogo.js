@@ -22,11 +22,26 @@ function posicaoRandomica(){
     /****CRIANDO O ELEMENTO HTML****/
     var mosquito = document.createElement('img');
     mosquito.src = 'imagens/mosca.png'; // atribuindo a variavel mosquito a imagem
-    mosquito.className = 'mosquito1';
+    mosquito.className = tamanhoAleatorio();
     mosquito.style.left = posicaoX + 'px';
     mosquito.style.top = posicaoY + 'px';
     mosquito.style.position = 'absolute';
     // " . " acessa os atributos html
 
     document.body.appendChild(mosquito);  // ADD UM FILHO PARA O BODY
+}
+
+function tamanhoAleatorio() {
+    var classe = Math.floor(Math.random() * 3);
+
+    if(classe === 0) {
+        return 'mosquito1';
+    }
+    else if(classe === 1) {
+        return 'mosquito2';
+    }
+
+    else {
+        return 'mosquito3';
+    }
 }
