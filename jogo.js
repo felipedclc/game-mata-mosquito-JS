@@ -11,6 +11,13 @@ function ajusteTamanhoJanela() {
 ajusteTamanhoJanela()
 
 function posicaoRandomica(){
+
+    // REMOVENDO O MOSQUITO ANTES DE CRIAR OUTRO (caso exista)
+    if(document.getElementById('mosquito') !== null) {
+        document.getElementById('mosquito').remove();
+    }
+    
+
     var posicaoX = Math.floor(Math.random() * width) - 90;
     var posicaoY = Math.floor(Math.random() * height) - 90;
 
@@ -19,16 +26,18 @@ function posicaoRandomica(){
 
     console.log(posicaoX, posicaoY);
 
-    /****CRIANDO O ELEMENTO HTML****/
+    // CRIANDO O ELEMENTO HTML
     var mosquito = document.createElement('img');
+
     mosquito.src = 'imagens/mosca.png'; // atribuindo a variavel mosquito a imagem
     mosquito.className = tamanhoAleatorio() + ' ' + ladoAleatorio(); // espaço para diferenciar as chamadas
     mosquito.style.left = posicaoX + 'px';
     mosquito.style.top = posicaoY + 'px';
     mosquito.style.position = 'absolute';
+    mosquito.id = 'mosquito';
     // " . " acessa os atributos html
 
-    document.body.appendChild(mosquito);  // ADD UM FILHO PARA O BODY
+    document.body.appendChild(mosquito);  // add um filtro para o body
 }
 
 function tamanhoAleatorio() {
