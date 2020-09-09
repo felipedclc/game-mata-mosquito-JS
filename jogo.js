@@ -2,6 +2,7 @@
 var height = 0;
 var width = 0;
 var vidas = 1;
+var tempo = 10;
 
 function ajusteTamanhoJanela() {
     height = window.innerHeight;
@@ -9,7 +10,23 @@ function ajusteTamanhoJanela() {
     console.log(height, width);
 }
 
-ajusteTamanhoJanela()
+ajusteTamanhoJanela();
+
+var cronometro = setInterval(function() {
+
+    tempo -= 1;
+
+    if(tempo < 0) {
+        clearInterval(cronometro); // para de repetir a ação(function) 
+        clearInterval(criaMosca);
+        alert('You Win!')
+    }
+    else {
+        document.getElementById('cronometro').innerHTML = tempo; // innerHTML(tudo o que estiver dentro da tag)
+    }
+    
+
+}, 1000)
 
 function posicaoRandomica(){
 

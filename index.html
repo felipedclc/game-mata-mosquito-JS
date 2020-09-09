@@ -15,18 +15,21 @@
             <img id="v1" src="imagens/coracao_cheio.png">
             <img id="v2" src="imagens/coracao_cheio.png">
             <img id="v3" src="imagens/coracao_cheio.png">
-            <div class="cronometro"> Tempo restante: ? </div>
+            <div class="cronometro"> Tempo restante:  <span id="cronometro"></span> </div>
 
         </div>
     </div>
 
 
     <script>
-        posicaoRandomica();
 
-        setInterval(function() {
+       document.getElementById('cronometro').innerHTML = tempo;
+
+        var criaMosca = setInterval(function() {
             posicaoRandomica(); // ATIVANDO A POSIÇÃO RANDÔMICA A CADA 1 SEGUNDO (1000 milessegundos)
         }, 1500)
+
+        posicaoRandomica();
     </script>
 </body>
 </html>
