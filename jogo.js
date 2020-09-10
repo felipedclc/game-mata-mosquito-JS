@@ -4,6 +4,22 @@ var width = 0;
 var vidas = 1;
 var tempo = 10;
 
+var criaMosquitoTempo;
+
+var nivel = window.location.search;
+nivel = nivel.replace("?", "");
+
+if(nivel === 'normal') {
+    criaMosquitoTempo = 1500;
+}
+else if(nivel === 'dificil') {
+    criaMosquitoTempo = 1000;
+}
+
+else {
+    criaMosquitoTempo = 750;
+}
+
 function ajusteTamanhoJanela() {
     height = window.innerHeight;
     width = window.innerWidth;
