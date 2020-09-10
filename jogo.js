@@ -19,7 +19,7 @@ var cronometro = setInterval(function() {
     if(tempo < 0) {
         clearInterval(cronometro); // para de repetir a ação(function) 
         clearInterval(criaMosca);
-        alert('You Win!')
+        window.location.href = 'you_win.html'
     }
     else {
         document.getElementById('cronometro').innerHTML = tempo; // innerHTML(tudo o que estiver dentro da tag)
